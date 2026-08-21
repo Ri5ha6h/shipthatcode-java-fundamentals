@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String line = sc.nextLine();
+        String name = sc.nextLine();
+        int age = sc.nextInt();
 
-        System.out.println(line.toUpperCase());
+        System.out.printf("Hi, %s! You are %d years old.%n", name, age);
     }
 }
