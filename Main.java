@@ -1,18 +1,16 @@
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String line = sc.nextLine();
-        String[] lines = line.split(" ");
+        int[] nums = Arrays.stream(sc.nextLine().split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
 
-        HashSet<String> seen = new HashSet<String>();
-        for(String s : lines){
-            seen.add(s);
-        }
+        int sum = Arrays.stream(nums).filter(n -> n % 2 == 0).map(n -> n * n).sum();
 
-        System.out.println(seen.size());
+        System.out.println(sum);
     }
 }
