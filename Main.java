@@ -2,30 +2,19 @@ import java.util.Scanner;
 
 public class Main {
 
-    static class Point {
-        int x;
-        int y;
-
-        Point(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
-
-        int distance(Point other) {
-            int dx = x - other.x;
-            int dy = y - other.y;
-            return (dx * dx + dy * dy);
-        }
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int x1 = sc.nextInt();
-        int y1 = sc.nextInt();
-        int x2 = sc.nextInt();
-        int y2 = sc.nextInt();
+        String line = sc.nextLine();
+        String[] lines = line.split(" ");
 
-        Point newPoint = new Point(x1, y1);
-        System.out.println(newPoint.distance(new Point(x2, y2)));
+        int max = Integer.parseInt(lines[0]);
+        for(int i = 1; i < lines.length; i++){
+            int compInt =  Integer.parseInt(lines[i]);
+            if(compInt > max){
+                max = compInt;
+            }
+        }
+
+        System.out.println(max);
     }
 }
