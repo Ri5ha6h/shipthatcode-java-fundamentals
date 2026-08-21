@@ -5,17 +5,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
 
-        if(num % 15 == 0){
-            System.out.println("FizzBuzz");
+        int sum = 0;
+        for (int i = 1; i <= num; i++){
+            sum += i;
         }
-        else if(num % 3 == 0){
-            System.out.println("Fizz");
-        }
-        else if(num % 5 == 0){
-            System.out.println("Buzz");
-        }
-        else {
-            System.out.println(num);
-        }
+        System.out.println(sum);
     }
 }
