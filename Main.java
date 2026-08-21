@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
@@ -7,14 +8,11 @@ public class Main {
         String line = sc.nextLine();
         String[] lines = line.split(" ");
 
-        int max = Integer.parseInt(lines[0]);
-        for(int i = 1; i < lines.length; i++){
-            int compInt =  Integer.parseInt(lines[i]);
-            if(compInt > max){
-                max = compInt;
-            }
+        HashSet<String> seen = new HashSet<String>();
+        for(String s : lines){
+            seen.add(s);
         }
 
-        System.out.println(max);
+        System.out.println(seen.size());
     }
 }
