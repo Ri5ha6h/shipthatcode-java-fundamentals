@@ -2,7 +2,15 @@ import java.util.Scanner;
 
 public class Main {
 
-    record Point(int x, int y) {
+    static class Point {
+        int x;
+        int y;
+
+        Point(int x, int y){
+            this.x = x;
+            this.y = y;
+        }
+
         int distance(Point other) {
             int dx = x - other.x;
             int dy = y - other.y;
