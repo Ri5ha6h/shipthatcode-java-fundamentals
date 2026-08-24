@@ -5,32 +5,39 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        Animal d = new Dog(name);
-
-        System.out.println(d.greet());
+        String kind = sc.nextLine();
+        double dim = Double.parseDouble(sc.nextLine());
+        Shape s = kind.equals("circle") ? new Circle(dim) : new Square(dim);
+        System.out.println(String.format("%.2f", s.area()));
     }
 }
 
-class Animal {
-    protected String name;
-
-    Animal(String name) {
-        this.name = name;
-    }
-
-    String greet() {
-        return this.name + " says hello";
-    }
+interface Shape {
+    double area();
 }
 
-class Dog extends Animal {
-    Dog(String name) {
-        super(name);
+class Circle implements Shape {
+    private  double radius;
+
+    Circle(double rad) {
+        this.radius = rad;
     }
 
     @Override
-    String greet() {
-        return this.name + " says woof";
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Square implements Shape {
+    private  double side;
+
+    Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public double area() {
+        return side * side;
     }
 }
