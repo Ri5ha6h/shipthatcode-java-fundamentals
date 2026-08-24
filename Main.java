@@ -5,12 +5,32 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] nums = Arrays.stream(sc.nextLine().split(" "))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        String name = sc.nextLine();
+        Animal d = new Dog(name);
 
-        int sum = Arrays.stream(nums).filter(n -> n % 2 == 0).map(n -> n * n).sum();
+        System.out.println(d.greet());
+    }
+}
 
-        System.out.println(sum);
+class Animal {
+    protected String name;
+
+    Animal(String name) {
+        this.name = name;
+    }
+
+    String greet() {
+        return this.name + " says hello";
+    }
+}
+
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    String greet() {
+        return this.name + " says woof";
     }
 }
